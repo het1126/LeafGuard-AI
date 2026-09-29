@@ -1,0 +1,16 @@
+LeafGuard AI -- Radish Classification Report
+============================================================
+Test Loss:     0.0446
+Test Accuracy: 98.95%
+
+                 precision    recall  f1-score   support
+
+Black leaf spot     0.9474    1.0000    0.9730        54
+  Downey mildew     1.0000    1.0000    1.0000        61
+    Flea beetle     1.0000    0.9615    0.9804        52
+     Fresh leaf     1.0000    0.9839    0.9919        62
+   Mosaic virus     1.0000    1.0000    1.0000        56
+
+       accuracy                         0.9895       285
+      macro avg     0.9895    0.9891    0.9890       285
+   weighted avg     0.9900    0.9895    0.9895       285

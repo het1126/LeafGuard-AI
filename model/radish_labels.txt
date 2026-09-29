@@ -1,0 +1,5 @@
+0: Black leaf spot
+1: Downey mildew
+2: Flea beetle
+3: Fresh leaf
+4: Mosaic virus

@@ -1,0 +1,20 @@
+LeafGuard AI - Model Test Report
+============================================================
+
+Test Loss:     0.2554
+Test Accuracy: 89.53%
+
+Classification Report:
+------------------------------------------------------------
+                            precision    recall  f1-score   support
+
+      ALTERNARIA LEAF SPOT     1.0000    0.7333    0.8462        45
+                   HEALTHY     0.9508    0.9667    0.9587        60
+LEAF SPOT (EARLY AND LATE)     0.7458    0.9778    0.8462        45
+                   ROSETTE     1.0000    0.7000    0.8235        10
+                      RUST     1.0000    1.0000    1.0000        12
+
+                  accuracy                         0.8953       172
+                 macro avg     0.9393    0.8756    0.8949       172
+              weighted avg     0.9163    0.8953    0.8948       172
+

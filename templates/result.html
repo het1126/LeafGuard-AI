@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeafGuard — Analysis Result</title>
+  <meta name="description" content="Crop disease analysis result from LeafGuard AI Smart Farming Platform.">
+  <meta name="theme-color" content="#0d4a2e">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo/leafguard_logo.png') }}" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    /* Result page specific — ensure result section is always visible */
+    .result-section { display: block !important; }
+    .result-page-hero {
+      padding-top: calc(var(--navbar-height) + 32px);
+      padding-bottom: 16px;
+      background: linear-gradient(160deg, #0d4a2e 0%, #1a7a4c 50%, #27ae60 100%);
+      text-align: center;
+      color: #fff;
+    }
+    .result-page-hero h1 {
+      color: #fff;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+    }
+    .result-page-hero p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 8px;
+    }
+    .back-home-wrapper {
+      text-align: center;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+    /* Animate confidence bar on page load */
+    .confidence-fill-static {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--green-light), var(--gold));
+      animation: fillBar 1.5s var(--ease-smooth) forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       Navbar
+       ═══════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="{{ url_for('index') }}" class="nav-logo" aria-label="LeafGuard Home">
+        <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="LeafGuard Logo" width="40" height="40">
+        <span>LeafGuard</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="{{ url_for('index') }}#home" data-i18n="nav_home">Home</a>
+        <a href="{{ url_for('index') }}#upload" data-i18n="nav_detect">Detect Disease</a>
+        <a href="{{ url_for('index') }}#diseases" data-i18n="nav_diseases">Diseases</a>
+        <a href="{{ url_for('index') }}#how-it-works" data-i18n="nav_how">How It Works</a>
+      </div>
+
+      <div class="nav-right">
+        <select id="languageSwitcher" class="language-select" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="gu">ગુજરાતી</option>
+        </select>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       Result Header
+       ═══════════════════════════════════ -->
+  <section class="result-page-hero">
+    <div class="container">
+      <h1 data-i18n="result_title">📊 Analysis Result</h1>
+      <p>Your leaf has been analyzed by our AI model</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Result Section
+       ═══════════════════════════════════ -->
+  <section class="result-section">
+    <div class="container">
+      <div class="result-card">
+        <div class="result-grid">
+          <!-- Analyzed Image -->
+          <div class="result-image">
+            {% if result.image_url %}
+            <img src="{{ result.image_url }}" alt="Analyzed leaf image">
+            {% else %}
+            <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="No image available" style="opacity:0.3; padding: 40px;">
+            {% endif %}
+          </div>
+
+          <!-- Result Details -->
+          <div class="result-details">
+            <!-- Disease Name -->
+            <div class="result-disease">
+              <span class="result-label" data-i18n="result_disease">Disease Detected</span>
+              <h3 class="disease-name {% if 'healthy' in result.disease|lower %}healthy{% else %}diseased{% endif %}">
+                {{ result.disease }}
+              </h3>
+            </div>
+
+            <!-- Crop & Prediction Time -->
+            <div class="result-meta-row">
+              <div class="result-meta-item">
+                <span class="result-label" data-i18n="result_crop">Crop</span>
+                <span class="meta-value">{{ result.crop_name|default('Groundnut', true) }}</span>
+              </div>
+              <div class="result-meta-item">
+                <span class="result-label" data-i18n="result_pred_time">Prediction Time</span>
+                <span class="meta-value">{{ result.prediction_time|default('N/A', true) }}</span>
+              </div>
+            </div>
+
+            <!-- Confidence -->
+            <div class="result-confidence">
+              <span class="result-label" data-i18n="result_confidence">Confidence</span>
+              <div class="confidence-bar" role="progressbar" aria-valuenow="{{ result.confidence }}" aria-valuemin="0" aria-valuemax="100">
+                <div class="confidence-fill-static" style="width: {{ result.confidence }}%"></div>
+              </div>
+              <span class="confidence-text">
+                {% if result.confidence is number %}
+                  {{ "%.1f"|format(result.confidence) }}%
+                {% else %}
+                  {{ result.confidence }}%
+                {% endif %}
+              </span>
+            </div>
+
+            <!-- Causes -->
+            <div class="result-info">
+              {% if result.description %}
+              <div class="info-block">
+                <h4 data-i18n="result_description">📝 Description</h4>
+                <p>{{ result.description }}</p>
+              </div>
+              {% endif %}
+              {% if result.symptoms %}
+              <div class="info-block">
+                <h4 data-i18n="result_symptoms">🔍 Symptoms</h4>
+                <ul>
+                  {% for symptom in result.symptoms %}
+                  <li>{{ symptom }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              {% if result.causes %}
+              <div class="info-block">
+                <h4 data-i18n="result_causes">📋 Possible Causes</h4>
+                <ul>
+                  {% for cause in result.causes %}
+                  <li>{{ cause }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+
+              <!-- Treatment -->
+              {% if result.treatment %}
+              <div class="info-block">
+                <h4 data-i18n="result_treatment">💊 Treatment Suggestions</h4>
+                <ul>
+                  {% for item in result.treatment %}
+                  <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+
+              <!-- Prevention -->
+              {% if result.prevention %}
+              <div class="info-block">
+                <h4 data-i18n="result_prevention">🛡️ Prevention Tips</h4>
+                <ul>
+                  {% for tip in result.prevention %}
+                  <li>{{ tip }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="back-home-wrapper">
+          <a href="{{ url_for('index') }}#upload" class="btn btn-primary" data-i18n="result_another">🔄 Analyze Another Leaf</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Footer
+       ═══════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="LeafGuard" width="36" height="36">
+          <span>LeafGuard</span>
+        </div>
+        <p data-i18n="footer_desc">AI-powered crop disease detection for smarter, healthier farming.</p>
+        <p class="footer-copy">&copy; 2025 LeafGuard. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/language.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

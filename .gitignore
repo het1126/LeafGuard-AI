@@ -1,0 +1,35 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Large Datasets (Do NOT upload to GitHub - too large)
+dataset/
+backup/
+archive/
+
+# User Uploads during runtime
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Environments
+venv/
+env/
+ENV/
+.env
+
+# IDE / OS metadata
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+~$*
+
+
+# Temporary test artifacts
+test_potato_cases.py
+create_technical_doc.py

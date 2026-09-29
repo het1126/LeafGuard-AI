@@ -1,0 +1,13 @@
+LeafGuard AI -- Pepper Classification Report
+============================================================
+Test Loss:     0.1995
+Test Accuracy: 92.34%
+
+                               precision    recall  f1-score   support
+
+Pepper__bell___Bacterial_spot     1.0000    0.8100    0.8950       100
+       Pepper__bell___healthy     0.8862    1.0000    0.9397       148
+
+                     accuracy                         0.9234       248
+                    macro avg     0.9431    0.9050    0.9174       248
+                 weighted avg     0.9321    0.9234    0.9217       248

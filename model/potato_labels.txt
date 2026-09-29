@@ -1,0 +1,7 @@
+0: Bacteria
+1: Fungi
+2: Healthy
+3: Nematode
+4: Pest
+5: Phytopthora
+6: Virus

@@ -1,0 +1,767 @@
+{
+  "nav_home": "Home",
+  "nav_detect": "Detect Disease",
+  "nav_diseases": "Diseases",
+  "nav_how": "How It Works",
+  "hero_title": "LeafGuard",
+  "hero_subtitle": "AI-Powered Crop Disease Detection for Smart Farming",
+  "hero_cta": "Start Detection",
+  "upload_title": "Upload Leaf Image",
+  "upload_desc": "Take a clear photo of the affected leaf and upload it for instant AI analysis",
+  "upload_drag": "Drag & drop your leaf image here",
+  "upload_or": "or",
+  "upload_browse": "Browse Files",
+  "upload_camera": "📷 Use Camera",
+  "upload_analyze": "🔬 Analyze Leaf",
+  "result_title": "Analysis Result",
+  "result_disease": "Disease Detected",
+  "result_confidence": "Confidence",
+  "result_causes": "📋 Possible Causes",
+  "result_treatment": "💊 Treatment Suggestions",
+  "result_prevention": "🛡️ Prevention Tips",
+  "result_another": "🔄 Analyze Another Leaf",
+  "diseases_title": "Groundnut Diseases We Detect",
+  "diseases_title_groundnut": "Groundnut Diseases We Detect",
+  "diseases_title_potato": "Potato Diseases We Detect",
+  "diseases_title_pepper": "Pepper Diseases We Detect",
+  "diseases_title_tomato": "Tomato Diseases We Detect",
+  "disease_healthy": "Healthy",
+  "disease_healthy_desc": "No signs of disease. The leaf appears normal and healthy with good color and texture.",
+  "disease_leaf_spot": "Leaf Spot (Early & Late)",
+  "disease_leaf_spot_desc": "Circular dark spots on leaves caused by Cercospora fungus. Can reduce yield by 50% if untreated.",
+  "disease_rust": "Rust",
+  "disease_rust_desc": "Orange-brown pustules on leaf undersides caused by Puccinia arachidis. Spreads rapidly in humid conditions.",
+  "disease_alternaria": "Alternaria Leaf Spot",
+  "disease_alternaria_desc": "Irregular brown lesions with concentric rings. Caused by Alternaria alternata in warm, humid weather.",
+  "disease_rosette": "Rosette",
+  "disease_rosette_desc": "Viral disease transmitted by aphids causing severe stunting, yellowing, and curling of leaves.",
+  "disease_potato_healthy": "Healthy",
+  "disease_potato_healthy_desc": "No signs of disease. The potato plant appears normal with healthy foliage and growth.",
+  "disease_potato_bacteria": "Bacterial Wilt",
+  "disease_potato_bacteria_desc": "Caused by Ralstonia solanacearum. Plants wilt rapidly even with adequate soil moisture.",
+  "disease_potato_fungi": "Fungal Blight",
+  "disease_potato_fungi_desc": "Caused by Alternaria solani. Dark concentric spots on older leaves leading to defoliation.",
+  "disease_potato_nematode": "Potato Cyst Nematode",
+  "disease_potato_nematode_desc": "Microscopic worms feeding on roots causing stunted growth, yellowing, and yield loss.",
+  "disease_potato_pest": "Pest Infestation",
+  "disease_potato_pest_desc": "Insects like Colorado Potato Beetle feeding on foliage, causing defoliation and yield loss.",
+  "disease_potato_phytopthora": "Late Blight (Phytophthora)",
+  "disease_potato_phytopthora_desc": "Devastating disease caused by Phytophthora infestans. Can destroy a crop in days under cool, wet conditions.",
+  "disease_potato_virus": "Potato Virus (PVY/PLRV)",
+  "disease_potato_virus_desc": "Viral diseases transmitted by aphids causing mosaic patterns, leaf rolling, and stunted growth.",
+  "disease_pepper_healthy": "Healthy",
+  "disease_pepper_healthy_desc": "The pepper plant appears healthy with no signs of disease. Vibrant green leaves and normal growth.",
+  "disease_pepper_bacterial": "Bacterial Spot",
+  "disease_pepper_bacterial_desc": "Caused by Xanthomonas campestris. Water-soaked spots on leaves that enlarge and turn brown with yellow halos.",
+  "disease_tomato_healthy": "Healthy",
+  "disease_tomato_healthy_desc": "The tomato plant appears healthy with vibrant green foliage and no signs of disease.",
+  "disease_tomato_bacterial": "Bacterial Spot",
+  "disease_tomato_bacterial_desc": "Small, dark, water-soaked lesions on leaves and fruit caused by Xanthomonas species.",
+  "disease_tomato_early_blight": "Early Blight",
+  "disease_tomato_early_blight_desc": "Concentric dark ring spots (target pattern) on older leaves caused by Alternaria solani.",
+  "disease_tomato_late_blight": "Late Blight",
+  "disease_tomato_late_blight_desc": "Devastating disease by Phytophthora infestans. Water-soaked lesions with white fuzzy mold underneath.",
+  "disease_tomato_leaf_mold": "Leaf Mold",
+  "disease_tomato_leaf_mold_desc": "Yellow spots on upper surface with olive-green velvety mold underneath. Common in greenhouses.",
+  "disease_tomato_septoria": "Septoria Leaf Spot",
+  "disease_tomato_septoria_desc": "Numerous small circular spots with dark borders and gray centers. Tiny black dots visible in spot centers.",
+  "disease_tomato_spider_mite": "Spider Mite Damage",
+  "disease_tomato_spider_mite_desc": "Fine stippling and webbing on leaves caused by two-spotted spider mites in hot, dry conditions.",
+  "disease_tomato_target_spot": "Target Spot",
+  "disease_tomato_target_spot_desc": "Brown spots with concentric ring patterns on leaves, stems, and fruit by Corynespora cassiicola.",
+  "disease_tomato_ylcv": "Yellow Leaf Curl Virus",
+  "disease_tomato_ylcv_desc": "Devastating viral disease causing upward leaf curling, yellowing, and severe stunting. Spread by whiteflies.",
+  "disease_tomato_mosaic": "Tomato Mosaic Virus",
+  "disease_tomato_mosaic_desc": "Highly contagious virus causing light/dark green mosaic patterns, leaf distortion, and stunted growth.",
+  "how_title": "How It Works",
+  "how_step1_title": "Capture",
+  "how_step1_desc": "Take a clear photo of the affected leaf using your phone camera or upload an existing image.",
+  "how_step2_title": "Analyze",
+  "how_step2_desc": "Our AI model powered by MobileNetV2 analyzes the leaf image and identifies any diseases.",
+  "how_step3_title": "Get Treatment",
+  "how_step3_desc": "Receive instant treatment suggestions and prevention tips in your preferred language.",
+  "footer_desc": "AI-powered crop disease detection for smarter, healthier farming.",
+  "toast_upload_success": "Image uploaded successfully!",
+  "toast_invalid_type": "Invalid file type. Please upload an image (JPG, PNG, WEBP, GIF).",
+  "toast_file_too_large": "File too large. Maximum size is 16MB.",
+  "toast_analysis_error": "Analysis failed. Please try again.",
+  "toast_no_file": "Please select an image first.",
+  "loading_text": "Analyzing your leaf...",
+  "upload_crop_label": "Select Crop",
+  "crop_groundnut": "Groundnut",
+  "crop_potato": "Potato",
+  "crop_pepper": "Pepper",
+  "crop_tomato": "Tomato",
+  "result_crop": "Crop",
+  "result_pred_time": "Prediction Time",
+  "result_description": "📝 Description",
+  "result_symptoms": "🔍 Symptoms",
+  "validation_invalid_title": "Invalid Image",
+  "validation_wrong_crop_title": "Wrong Crop Detected",
+  "validation_low_confidence_title": "Unable to Identify Disease",
+  "validation_quality_title": "Image Quality Issue",
+  "validation_retry": "🔄 Try Again",
+  "nav_history": "History",
+  "history_title": "Prediction History",
+  "history_desc": "View your past predictions and results",
+  "history_clear": "🗑️ Clear History",
+  "history_empty": "No predictions yet. Upload a leaf image to get started!",
+  "history_col_date": "Date & Time",
+  "history_col_crop": "Crop",
+  "history_col_disease": "Disease",
+  "history_col_confidence": "Confidence",
+  "history_cleared": "History cleared!",
+  "healthy_causes_1": "The leaf is in good health with no visible symptoms.",
+  "healthy_causes_2": "Proper nutrition and watering are maintaining plant vigor.",
+  "healthy_treatment_1": "No treatment needed — continue regular care.",
+  "healthy_treatment_2": "Maintain balanced fertilization schedule.",
+  "healthy_treatment_3": "Keep monitoring for early signs of disease.",
+  "healthy_prevention_1": "Use certified disease-free seeds.",
+  "healthy_prevention_2": "Practice crop rotation every 2-3 seasons.",
+  "healthy_prevention_3": "Ensure proper plant spacing for air circulation.",
+  "healthy_prevention_4": "Apply preventive fungicide spray during rainy season.",
+  "leaf_spot_causes_1": "Caused by Cercospora arachidicola fungus.",
+  "leaf_spot_causes_2": "Spreads through wind-borne spores and rain splash.",
+  "leaf_spot_causes_3": "Favored by warm, humid weather (25-30°C).",
+  "leaf_spot_treatment_1": "Apply Mancozeb (2.5 g/L) fungicide spray.",
+  "leaf_spot_treatment_2": "Use Chlorothalonil-based fungicides.",
+  "leaf_spot_treatment_3": "Spray at 10-15 day intervals during disease progression.",
+  "leaf_spot_treatment_4": "Remove and destroy severely infected leaves.",
+  "leaf_spot_prevention_1": "Use disease-resistant groundnut varieties (GPBD-4, TAG-24).",
+  "leaf_spot_prevention_2": "Practice crop rotation with non-host crops.",
+  "leaf_spot_prevention_3": "Avoid overhead irrigation to reduce leaf wetness.",
+  "leaf_spot_prevention_4": "Apply preventive fungicide spray at 30-35 days after sowing.",
+  "rust_causes_1": "Caused by Puccinia arachidis fungus.",
+  "rust_causes_2": "Spreads rapidly through airborne urediniospores.",
+  "rust_causes_3": "Thrives in high humidity (>80%) and temperatures 20-28°C.",
+  "rust_treatment_1": "Apply Triadimefon (1 g/L) or Hexaconazole (2 mL/L).",
+  "rust_treatment_2": "Use systemic fungicides like Propiconazole.",
+  "rust_treatment_3": "Spray at first sign of pustules, repeat after 15 days.",
+  "rust_treatment_4": "Combine contact and systemic fungicides for better control.",
+  "rust_prevention_1": "Grow rust-resistant varieties (ICGV 86590, GPBD-4).",
+  "rust_prevention_2": "Avoid late sowing — plant at recommended time.",
+  "rust_prevention_3": "Remove volunteer groundnut plants from previous seasons.",
+  "rust_prevention_4": "Maintain proper field drainage to reduce humidity.",
+  "alternaria_causes_1": "Caused by Alternaria alternata fungus.",
+  "alternaria_causes_2": "Favored by warm, humid conditions and poor air circulation.",
+  "alternaria_causes_3": "Spreads through infected seed and crop debris.",
+  "alternaria_treatment_1": "Apply copper-based fungicides (Copper Oxychloride 3 g/L).",
+  "alternaria_treatment_2": "Use Iprodione or Mancozeb sprays.",
+  "alternaria_treatment_3": "Treat seeds with Thiram or Carbendazim before planting.",
+  "alternaria_treatment_4": "Remove infected plant debris from the field.",
+  "alternaria_prevention_1": "Use certified disease-free seed.",
+  "alternaria_prevention_2": "Maintain proper plant spacing (30 × 10 cm).",
+  "alternaria_prevention_3": "Practice crop rotation with cereals.",
+  "alternaria_prevention_4": "Avoid excessive nitrogen fertilization.",
+  "no_info_available": "No information available",
+  "disease_reports": {
+    "Alternaria_Leaf_Spot": {
+      "disease": "Alternaria Leaf Spot",
+      "display_name": "Alternaria Leaf Spot",
+      "crop_name": "Groundnut",
+      "description": "Caused by the fungus Alternaria alternata. Irregular brown lesions with concentric rings appear on leaves. It survives in crop debris.",
+      "symptoms": [
+        "Irregular brown lesions",
+        "Concentric rings (target-board pattern) on leaves",
+        "Leaves drying up and dropping off"
+      ],
+      "causes": [
+        "Caused by the fungus Alternaria alternata in warm, humid conditions."
+      ],
+      "treatment": [
+        "Apply copper-based fungicides (Copper Oxychloride 3 g/L)",
+        "Use Mancozeb (2.5 g/L)",
+        "Remove and burn infected plant parts",
+        "Apply fungicide within 48 hours of symptoms"
+      ],
+      "prevention": [
+        "Maintain proper spacing (30 × 10 cm)",
+        "Avoid waterlogging",
+        "Use disease-free certified seeds",
+        "Practice crop rotation with cereals"
+      ]
+    },
+    "Healthy": {
+      "disease": "Healthy",
+      "display_name": "Healthy",
+      "crop_name": "Potato",
+      "description": "The plant appears healthy with no signs of disease.",
+      "symptoms": [
+        "None",
+        "Vibrant green leaves",
+        "Normal growth"
+      ],
+      "causes": [
+        "Optimal growing conditions and absence of pathogens."
+      ],
+      "treatment": [
+        "No treatment needed",
+        "Continue regular watering",
+        "Monitor leaves weekly",
+        "Maintain soil health"
+      ],
+      "prevention": [
+        "Continue good farming practices",
+        "Use certified seeds",
+        "Maintain field hygiene",
+        "Practice crop rotation"
+      ]
+    },
+    "Leaf_Spot_Early_and_Late": {
+      "disease": "Leaf Spot (Early and Late)",
+      "display_name": "Leaf Spot (Early and Late)",
+      "crop_name": "Groundnut",
+      "description": "Caused by Cercospora arachidicola (early) and Cercosporidium personatum (late). Brown or black spots appear on leaves.",
+      "symptoms": [
+        "Brown or dark spots on upper leaf surface",
+        "Yellow halo around spots",
+        "Premature leaf drop"
+      ],
+      "causes": [
+        "Fungal infection thriving in warm, humid conditions."
+      ],
+      "treatment": [
+        "Apply fungicides such as Mancozeb",
+        "Remove heavily infected leaves",
+        "Spray fungicide every 10-14 days",
+        "Use contact and systemic fungicides"
+      ],
+      "prevention": [
+        "Crop rotation with non-host crops",
+        "Avoid overhead irrigation",
+        "Plant resistant varieties",
+        "Maintain proper plant spacing"
+      ]
+    },
+    "Rosette": {
+      "disease": "Groundnut Rosette Disease",
+      "display_name": "Groundnut Rosette Disease",
+      "crop_name": "Groundnut",
+      "description": "A viral disease transmitted by aphids. Causes severe stunting of plants and yellowing of leaves.",
+      "symptoms": [
+        "Severe stunting",
+        "Yellowing of leaves",
+        "Curled or distorted leaves"
+      ],
+      "causes": [
+        "Viral infection transmitted by the groundnut aphid."
+      ],
+      "treatment": [
+        "Control aphid vectors with insecticides",
+        "Remove and destroy infected plants",
+        "No cure once infected",
+        "Apply systemic insecticides early"
+      ],
+      "prevention": [
+        "Plant early in the season",
+        "Maintain high plant density",
+        "Remove volunteer plants",
+        "Use resistant varieties"
+      ]
+    },
+    "Rust": {
+      "disease": "Rust",
+      "display_name": "Rust",
+      "crop_name": "Groundnut",
+      "description": "Caused by the fungus Puccinia arachidis. Orange-brown pustules appear on the underside of leaves.",
+      "symptoms": [
+        "Orange-brown pustules on leaf underside",
+        "Leaves turn brown and dry up",
+        "Pustules rupture releasing powdery spores"
+      ],
+      "causes": [
+        "Fungus Puccinia arachidis spreading via airborne spores."
+      ],
+      "treatment": [
+        "Apply systemic fungicides (Triadimefon)",
+        "Spray at first sign of pustules",
+        "Repeat every 10-15 days",
+        "Combine with neem oil"
+      ],
+      "prevention": [
+        "Grow rust-resistant varieties",
+        "Sow early",
+        "Remove crop residues",
+        "Avoid excessive nitrogen"
+      ]
+    },
+    "Bacteria": {
+      "disease": "Bacterial Wilt",
+      "display_name": "Bacterial Wilt",
+      "crop_name": "Potato",
+      "description": "Caused by Ralstonia solanacearum. Plants wilt rapidly even with adequate soil moisture.",
+      "symptoms": [
+        "Rapid wilting of leaves and stems",
+        "Stems may show brown discoloration inside",
+        "White bacterial ooze from cut stems"
+      ],
+      "causes": [
+        "Bacterial infection through roots or wounded plant parts."
+      ],
+      "treatment": [
+        "Remove and destroy infected plants",
+        "No chemical cure available",
+        "Solarize soil if heavily infested",
+        "Apply bio-control agents preventatively"
+      ],
+      "prevention": [
+        "Use certified disease-free seed tubers",
+        "Practice 3-5 year crop rotation",
+        "Improve soil drainage",
+        "Sanitize farm equipment"
+      ]
+    },
+    "Fungi": {
+      "disease": "Fungal Blight (Early Blight)",
+      "display_name": "Fungal Blight (Early Blight)",
+      "crop_name": "Potato",
+      "description": "Caused by Alternaria solani. Dark, concentric spots appear on older leaves first.",
+      "symptoms": [
+        "Dark brown spots with concentric rings",
+        "Yellowing around spots",
+        "Leaves drying and dying"
+      ],
+      "causes": [
+        "Fungus spreading in warm, moist environments."
+      ],
+      "treatment": [
+        "Apply protectant fungicides (Chlorothalonil)",
+        "Apply systemic fungicides",
+        "Spray early in the season",
+        "Remove infected debris"
+      ],
+      "prevention": [
+        "Use disease-free seed",
+        "Avoid overhead irrigation",
+        "Provide adequate fertilization",
+        "Rotate crops with non-solanaceous plants"
+      ]
+    },
+    "Nematode": {
+      "disease": "Potato Cyst Nematode",
+      "display_name": "Potato Cyst Nematode",
+      "crop_name": "Potato",
+      "description": "Microscopic worms that feed on potato roots, causing poor growth and yield loss.",
+      "symptoms": [
+        "Stunted plant growth",
+        "Yellowing of leaves",
+        "Tiny white/yellow cysts on roots"
+      ],
+      "causes": [
+        "Infestation of Globodera species in the soil."
+      ],
+      "treatment": [
+        "Apply nematicides before planting",
+        "Use trap crops",
+        "Solarize soil",
+        "Fumigate soil in severe cases"
+      ],
+      "prevention": [
+        "Strict quarantine measures",
+        "Long crop rotations (up to 7 years)",
+        "Plant resistant varieties",
+        "Clean equipment to prevent soil spread"
+      ]
+    },
+    "Pest": {
+      "disease": "Pest Infestation (Colorado Potato Beetle)",
+      "display_name": "Pest Infestation (Colorado Potato Beetle)",
+      "crop_name": "Potato",
+      "description": "Insects feeding on potato foliage, which can completely defoliate the plant.",
+      "symptoms": [
+        "Holes in leaves",
+        "Skeletonized leaves",
+        "Presence of larvae or adult beetles"
+      ],
+      "causes": [
+        "Insect pests multiplying rapidly in favorable conditions."
+      ],
+      "treatment": [
+        "Hand-pick beetles and larvae",
+        "Apply Spinosad or Neem oil",
+        "Use specific chemical insecticides",
+        "Apply Bacillus thuringiensis (Bt) for larvae"
+      ],
+      "prevention": [
+        "Use row covers",
+        "Practice crop rotation",
+        "Encourage natural predators",
+        "Plant early to avoid peak pest populations"
+      ]
+    },
+    "Phytopthora": {
+      "disease": "Late Blight (Phytophthora)",
+      "display_name": "Late Blight (Phytophthora)",
+      "crop_name": "Potato",
+      "description": "A devastating disease caused by Phytophthora infestans. Can destroy a crop in days under cool, wet conditions.",
+      "symptoms": [
+        "Water-soaked, dark green spots on leaves",
+        "White fungal growth on leaf underside",
+        "Brown, rot on tubers"
+      ],
+      "causes": [
+        "Oomycete pathogen thriving in cool, wet weather."
+      ],
+      "treatment": [
+        "Apply contact fungicides preventatively",
+        "Use systemic fungicides like Metalaxyl",
+        "Destroy infected vines before harvest",
+        "Harvest in dry conditions"
+      ],
+      "prevention": [
+        "Plant resistant varieties",
+        "Destroy volunteer potatoes",
+        "Ensure good soil drainage",
+        "Avoid late harvesting"
+      ]
+    },
+    "Virus": {
+      "disease": "Potato Virus (PVY/PLRV)",
+      "display_name": "Potato Virus (PVY/PLRV)",
+      "crop_name": "Potato",
+      "description": "Viral diseases transmitted by aphids, causing mosaic patterns or leaf rolling.",
+      "symptoms": [
+        "Mottled or mosaic patterns on leaves",
+        "Rolling of leaves upward",
+        "Stunted growth and reduced yield"
+      ],
+      "causes": [
+        "Viruses transmitted by aphid vectors or infected seed tubers."
+      ],
+      "treatment": [
+        "No chemical cure for viruses",
+        "Use insecticides to control vectors",
+        "Apply mineral oils to reduce transmission",
+        "Destroy heavily infected crops"
+      ],
+      "prevention": [
+        "Use certified virus-free seed",
+        "Control aphid populations",
+        "Remove (rogue) infected plants early",
+        "Avoid planting near infected fields"
+      ]
+    },
+    "Pepper__bell___Bacterial_spot": {
+      "disease": "Bacterial Spot",
+      "display_name": "Bacterial Spot",
+      "crop_name": "Pepper",
+      "description": "Caused by Xanthomonas campestris. Water-soaked spots appear on leaves, stems, and fruit.",
+      "symptoms": [
+        "Small, dark, water-soaked spots on leaves",
+        "Spots enlarge and turn brown with yellow halo",
+        "Leaf drop in severe cases",
+        "Raised scab-like spots on fruit"
+      ],
+      "causes": [
+        "Bacterial infection (Xanthomonas campestris pv. vesicatoria) spread by rain splash and contaminated seeds."
+      ],
+      "treatment": [
+        "Apply copper-based bactericides",
+        "Spray Streptomycin if permitted",
+        "Remove heavily infected plants",
+        "Improve air circulation around plants"
+      ],
+      "prevention": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Practice crop rotation (2-3 years)",
+        "Remove infected plant debris"
+      ]
+    },
+    "Pepper__bell___healthy": {
+      "disease": "Healthy",
+      "display_name": "Healthy",
+      "crop_name": "Pepper",
+      "description": "The pepper plant appears healthy with no signs of disease.",
+      "symptoms": [
+        "Vibrant green leaves",
+        "No spots or lesions",
+        "Normal growth and fruit development"
+      ],
+      "causes": [
+        "Optimal growing conditions and absence of pathogens."
+      ],
+      "treatment": [
+        "No treatment needed",
+        "Continue regular watering",
+        "Monitor leaves weekly",
+        "Maintain soil health"
+      ],
+      "prevention": [
+        "Continue good farming practices",
+        "Use certified seeds",
+        "Maintain field hygiene",
+        "Practice crop rotation"
+      ]
+    },
+    "Tomato_Bacterial_spot": {
+      "disease": "Bacterial Spot",
+      "display_name": "Bacterial Spot",
+      "crop_name": "Tomato",
+      "description": "Caused by Xanthomonas species. Small, dark, water-soaked lesions appear on leaves and fruit.",
+      "symptoms": [
+        "Small dark spots on leaves",
+        "Spots may have yellow halo",
+        "Leaf yellowing and drop",
+        "Raised scabby spots on fruit"
+      ],
+      "causes": [
+        "Bacterial infection spread by rain splash, overhead irrigation, and contaminated seeds."
+      ],
+      "treatment": [
+        "Apply copper-based sprays",
+        "Use copper + mancozeb combination",
+        "Remove heavily infected plants",
+        "Avoid working in wet fields"
+      ],
+      "prevention": [
+        "Use disease-free seeds and transplants",
+        "Avoid overhead watering",
+        "Rotate crops for 2-3 years",
+        "Remove crop debris after harvest"
+      ]
+    },
+    "Tomato_Early_blight": {
+      "disease": "Early Blight",
+      "display_name": "Early Blight",
+      "crop_name": "Tomato",
+      "description": "Caused by Alternaria solani. Concentric dark rings (target spots) form on older leaves first.",
+      "symptoms": [
+        "Dark concentric ring spots on lower leaves",
+        "Yellow area around spots",
+        "Leaves wither and drop",
+        "Stem lesions possible"
+      ],
+      "causes": [
+        "Fungus Alternaria solani thriving in warm, humid conditions with heavy dew."
+      ],
+      "treatment": [
+        "Apply chlorothalonil or mancozeb fungicides",
+        "Spray copper-based fungicides",
+        "Remove infected leaves promptly",
+        "Apply fungicide every 7-10 days in wet weather"
+      ],
+      "prevention": [
+        "Stake plants for air circulation",
+        "Mulch around base",
+        "Water at soil level",
+        "Remove lower infected leaves"
+      ]
+    },
+    "Tomato_Late_blight": {
+      "disease": "Late Blight",
+      "display_name": "Late Blight",
+      "crop_name": "Tomato",
+      "description": "Caused by Phytophthora infestans. Can devastate entire crops rapidly in cool, wet conditions.",
+      "symptoms": [
+        "Large, irregularly shaped, water-soaked lesions",
+        "White fuzzy mold on leaf undersides",
+        "Dark brown firm rot on fruit",
+        "Rapid plant collapse"
+      ],
+      "causes": [
+        "Oomycete Phytophthora infestans favored by cool (15-22°C), wet weather."
+      ],
+      "treatment": [
+        "Apply systemic fungicides (Metalaxyl)",
+        "Spray preventive copper fungicides",
+        "Destroy infected plants immediately",
+        "Harvest remaining fruit quickly"
+      ],
+      "prevention": [
+        "Destroy volunteer plants",
+        "Provide good air circulation",
+        "Avoid overhead irrigation",
+        "Use resistant varieties"
+      ]
+    },
+    "Tomato_Leaf_Mold": {
+      "disease": "Leaf Mold",
+      "display_name": "Leaf Mold",
+      "crop_name": "Tomato",
+      "description": "Caused by Passalora fulva (Cladosporium fulvum). Mainly affects greenhouse tomatoes.",
+      "symptoms": [
+        "Pale green to yellow spots on upper leaf surface",
+        "Olive-green to brown velvety mold on underside",
+        "Leaves curl and wither",
+        "Reduced fruit set"
+      ],
+      "causes": [
+        "Fungus Passalora fulva thriving in high humidity (>85%) and moderate temperatures."
+      ],
+      "treatment": [
+        "Improve air circulation immediately",
+        "Apply fungicides (chlorothalonil)",
+        "Remove severely affected leaves",
+        "Reduce watering frequency"
+      ],
+      "prevention": [
+        "Improve greenhouse ventilation",
+        "Reduce humidity below 85%",
+        "Space plants adequately",
+        "Use resistant varieties"
+      ]
+    },
+    "Tomato_Septoria_leaf_spot": {
+      "disease": "Septoria Leaf Spot",
+      "display_name": "Septoria Leaf Spot",
+      "crop_name": "Tomato",
+      "description": "Caused by Septoria lycopersici. Small circular spots with dark borders and gray centers.",
+      "symptoms": [
+        "Numerous small circular spots (1-3mm)",
+        "Dark brown borders with gray/tan centers",
+        "Tiny black dots (pycnidia) in spot centers",
+        "Lower leaves affected first"
+      ],
+      "causes": [
+        "Fungus Septoria lycopersici spread by rain splash and overhead irrigation."
+      ],
+      "treatment": [
+        "Apply fungicides (chlorothalonil or copper)",
+        "Remove lower infected leaves",
+        "Spray at first sign of disease",
+        "Continue treatment every 7-14 days"
+      ],
+      "prevention": [
+        "Mulch around plants",
+        "Avoid overhead watering",
+        "Rotate crops for 3 years",
+        "Remove infected plant debris"
+      ]
+    },
+    "Tomato_Spider_mites_Two_spotted_spider_mite": {
+      "disease": "Spider Mite Damage",
+      "display_name": "Spider Mite Damage",
+      "crop_name": "Tomato",
+      "description": "Caused by Tetranychus urticae. Tiny mites feed on leaf cells causing stippling and webbing.",
+      "symptoms": [
+        "Fine stippling/speckling on leaves",
+        "Yellowing and bronzing of leaves",
+        "Fine webbing on undersides",
+        "Leaf drop in severe cases"
+      ],
+      "causes": [
+        "Infestation by two-spotted spider mites, favored by hot, dry conditions."
+      ],
+      "treatment": [
+        "Spray with strong water jet to dislodge mites",
+        "Apply insecticidal soap or neem oil",
+        "Use miticides (abamectin)",
+        "Release predatory mites (Phytoseiulus persimilis)"
+      ],
+      "prevention": [
+        "Maintain adequate humidity",
+        "Avoid dusty conditions",
+        "Introduce predatory mites",
+        "Keep plants well-watered"
+      ]
+    },
+    "Tomato__Target_Spot": {
+      "disease": "Target Spot",
+      "display_name": "Target Spot",
+      "crop_name": "Tomato",
+      "description": "Caused by Corynespora cassiicola. Concentric ring patterns appear on leaves, stems, and fruit.",
+      "symptoms": [
+        "Small brown spots with concentric rings",
+        "Spots enlarge up to 1cm",
+        "Leaf yellowing around spots",
+        "Fruit lesions with sunken centers"
+      ],
+      "causes": [
+        "Fungus Corynespora cassiicola thriving in warm, humid environments."
+      ],
+      "treatment": [
+        "Apply fungicides (azoxystrobin or chlorothalonil)",
+        "Remove infected leaves",
+        "Spray preventively in wet seasons",
+        "Ensure good plant spacing"
+      ],
+      "prevention": [
+        "Improve air circulation",
+        "Avoid overhead irrigation",
+        "Remove crop debris",
+        "Practice crop rotation"
+      ]
+    },
+    "Tomato__Tomato_YellowLeaf__Curl_Virus": {
+      "disease": "Yellow Leaf Curl Virus (TYLCV)",
+      "display_name": "Yellow Leaf Curl Virus (TYLCV)",
+      "crop_name": "Tomato",
+      "description": "A devastating viral disease transmitted by whiteflies (Bemisia tabaci).",
+      "symptoms": [
+        "Upward curling and cupping of leaves",
+        "Yellowing of leaf margins",
+        "Severe stunting of plant",
+        "Flower drop and reduced fruit set"
+      ],
+      "causes": [
+        "Tomato Yellow Leaf Curl Virus transmitted by silverleaf whitefly vectors."
+      ],
+      "treatment": [
+        "No cure once infected — remove plants",
+        "Control whitefly vectors with imidacloprid",
+        "Use yellow sticky traps for monitoring",
+        "Apply neem oil to reduce whitefly populations"
+      ],
+      "prevention": [
+        "Use whitefly-resistant varieties",
+        "Install insect-proof netting",
+        "Control whitefly populations",
+        "Remove infected plants immediately"
+      ]
+    },
+    "Tomato__Tomato_mosaic_virus": {
+      "disease": "Tomato Mosaic Virus (ToMV)",
+      "display_name": "Tomato Mosaic Virus (ToMV)",
+      "crop_name": "Tomato",
+      "description": "A highly contagious virus that causes mottled patterns and distorted growth.",
+      "symptoms": [
+        "Light and dark green mosaic patterns on leaves",
+        "Leaf curling and distortion",
+        "Stunted plant growth",
+        "Reduced and distorted fruit"
+      ],
+      "causes": [
+        "Tomato Mosaic Virus spread mechanically through contaminated tools, hands, and seeds."
+      ],
+      "treatment": [
+        "No chemical cure available",
+        "Remove and destroy infected plants",
+        "Disinfect all tools and stakes",
+        "Do not smoke near plants (tobacco mosaic cross-infection)"
+      ],
+      "prevention": [
+        "Use virus-free seeds",
+        "Disinfect tools with 10% bleach solution",
+        "Wash hands before handling plants",
+        "Use resistant varieties"
+      ]
+    },
+    "Tomato_healthy": {
+      "disease": "Healthy",
+      "display_name": "Healthy",
+      "crop_name": "Tomato",
+      "description": "The tomato plant appears healthy with no signs of disease or pest damage.",
+      "symptoms": [
+        "Vibrant green foliage",
+        "No spots, lesions, or discoloration",
+        "Normal fruit development"
+      ],
+      "causes": [
+        "Optimal growing conditions and absence of pathogens."
+      ],
+      "treatment": [
+        "No treatment needed",
+        "Continue regular care",
+        "Monitor weekly for changes",
+        "Maintain consistent watering"
+      ],
+      "prevention": [
+        "Continue good farming practices",
+        "Rotate crops regularly",
+        "Monitor for early signs of disease",
+        "Maintain balanced nutrition"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+0: Pepper__bell___Bacterial_spot
+1: Pepper__bell___healthy

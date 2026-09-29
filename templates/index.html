@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeafGuard — AI Crop Disease Detection</title>
+  <meta name="description" content="AI-powered smart farming platform that detects crop diseases from leaf images. Supports groundnut leaf spot, rust, and alternaria detection.">
+  <meta name="theme-color" content="#0d4a2e">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo/leafguard_logo.png') }}" type="image/png">
+
+  <!-- Google Fonts – Preconnect & Load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       Navbar
+       ═══════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" aria-label="LeafGuard Home">
+        <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="LeafGuard Logo" width="40" height="40">
+        <span>LeafGuard</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" data-i18n="nav_home">Home</a>
+        <a href="#upload" data-i18n="nav_detect">Detect Disease</a>
+        <a href="#diseases" data-i18n="nav_diseases">Diseases</a>
+        <a href="#how-it-works" data-i18n="nav_how">How It Works</a>
+        <a href="#history" data-i18n="nav_history">History</a>
+      </div>
+
+      <div class="nav-right">
+        <select id="languageSwitcher" class="language-select" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="gu">ગુજરાતી</option>
+        </select>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       Hero Section
+       ═══════════════════════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="LeafGuard" class="hero-logo-img" width="120" height="120">
+      </div>
+      <h1 data-i18n="hero_title">LeafGuard</h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">AI-Powered Crop Disease Detection for Smart Farming</p>
+      <a href="#upload" class="btn btn-primary btn-glow" data-i18n="hero_cta">Start Detection</a>
+    </div>
+    <div class="hero-particles" aria-hidden="true"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Upload Section
+       ═══════════════════════════════════ -->
+  <section id="upload" class="upload-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-i18n="upload_title">Upload Leaf Image</h2>
+      <p class="section-desc animate-on-scroll" data-i18n="upload_desc">Take a clear photo of the affected leaf and upload it for instant AI analysis</p>
+
+      <div class="upload-card animate-on-scroll">
+        <form id="uploadForm" enctype="multipart/form-data">
+          <!-- Crop Selection -->
+          <div class="crop-selector">
+            <label class="crop-selector-label" for="cropSelect" data-i18n="upload_crop_label">Select Crop</label>
+            <div class="crop-options">
+              <label class="crop-option">
+                <input type="radio" name="crop" value="groundnut" checked>
+                <span class="crop-chip">🥜 <span data-i18n="crop_groundnut">Groundnut</span></span>
+              </label>
+              <label class="crop-option">
+                <input type="radio" name="crop" value="potato">
+                <span class="crop-chip">🥔 <span data-i18n="crop_potato">Potato</span></span>
+              </label>
+              <label class="crop-option">
+                <input type="radio" name="crop" value="pepper">
+                <span class="crop-chip">🌶️ <span data-i18n="crop_pepper">Pepper</span></span>
+              </label>
+              <label class="crop-option">
+                <input type="radio" name="crop" value="tomato">
+                <span class="crop-chip">🍅 <span data-i18n="crop_tomato">Tomato</span></span>
+              </label>
+            </div>
+          </div>
+          <!-- Drop Zone -->
+          <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload image area">
+            <div class="upload-icon" aria-hidden="true">🌿</div>
+            <p class="upload-text" data-i18n="upload_drag">Drag &amp; drop your leaf image here</p>
+            <p class="upload-or" data-i18n="upload_or">or</p>
+            <div class="upload-buttons">
+              <label class="btn btn-outline" for="fileInput">
+                <span data-i18n="upload_browse">Browse Files</span>
+              </label>
+              <label class="btn btn-outline" for="cameraInput">
+                <span data-i18n="upload_camera">📷 Use Camera</span>
+              </label>
+            </div>
+            <input type="file" id="fileInput" name="file" accept="image/*" hidden>
+            <input type="file" id="cameraInput" name="file" accept="image/*" capture="environment" hidden>
+          </div>
+
+          <!-- Image Preview -->
+          <div class="image-preview" id="imagePreview" style="display:none;">
+            <img id="previewImg" src="" alt="Leaf image preview">
+            <button type="button" class="btn-remove" id="removeImage" aria-label="Remove image">✕</button>
+          </div>
+
+          <!-- Analyze Button -->
+          <button type="submit" class="btn btn-primary btn-analyze" id="analyzeBtn" disabled>
+            <span class="btn-text" data-i18n="upload_analyze">🔬 Analyze Leaf</span>
+            <span class="btn-loader" style="display:none;" aria-label="Loading"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Result Section (hidden by default)
+       ═══════════════════════════════════ -->
+  <section id="result" class="result-section" style="display:none;">
+    <div class="container">
+      <h2 class="section-title" data-i18n="result_title">Analysis Result</h2>
+
+      <div class="result-card">
+        <!-- Validation Error Display (hidden by default) -->
+        <div id="validationError" class="validation-error" style="display:none;">
+          <div class="validation-error-icon" id="validationIcon">⚠️</div>
+          <h3 id="validationTitle" class="validation-title">Invalid Image</h3>
+          <p id="validationMessage" class="validation-message">Please upload a valid leaf image.</p>
+          <button class="btn btn-primary" id="validationRetry" data-i18n="validation_retry">🔄 Try Again</button>
+        </div>
+        <div class="result-grid">
+          <!-- Analyzed Image -->
+          <div class="result-image">
+            <img id="resultImg" src="" alt="Analyzed leaf image">
+          </div>
+
+          <!-- Result Details -->
+          <div class="result-details">
+            <div class="result-disease">
+              <span class="result-label" data-i18n="result_disease">Disease Detected</span>
+              <h3 id="diseaseName" class="disease-name"></h3>
+            </div>
+
+            <div class="result-meta-row">
+              <div class="result-meta-item">
+                <span class="result-label" data-i18n="result_crop">Crop</span>
+                <span id="resultCropName" class="meta-value"></span>
+              </div>
+              <div class="result-meta-item">
+                <span class="result-label" data-i18n="result_pred_time">Prediction Time</span>
+                <span id="resultPredTime" class="meta-value"></span>
+              </div>
+            </div>
+
+            <div class="result-confidence">
+              <span class="result-label" data-i18n="result_confidence">Confidence</span>
+              <div class="confidence-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="confidence-fill" id="confidenceFill"></div>
+              </div>
+              <span id="confidenceText" class="confidence-text"></span>
+            </div>
+
+            <div class="result-info">
+              <div class="info-block" id="descriptionBlock" style="display:none;">
+                <h4 data-i18n="result_description">📝 Description</h4>
+                <p id="diseaseDescription"></p>
+              </div>
+              <div class="info-block" id="symptomsBlock" style="display:none;">
+                <h4 data-i18n="result_symptoms">🔍 Symptoms</h4>
+                <ul id="symptomsList"></ul>
+              </div>
+              <div class="info-block">
+                <h4 data-i18n="result_causes">📋 Possible Causes</h4>
+                <ul id="causesList"></ul>
+              </div>
+              <div class="info-block">
+                <h4 data-i18n="result_treatment">💊 Treatment Suggestions</h4>
+                <ul id="treatmentList"></ul>
+              </div>
+              <div class="info-block">
+                <h4 data-i18n="result_prevention">🛡️ Prevention Tips</h4>
+                <ul id="preventionList"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="analyzeAnother" data-i18n="result_another">🔄 Analyze Another Leaf</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Disease Info Section
+       ═══════════════════════════════════ -->
+  <section id="diseases" class="diseases-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" id="diseasesSectionTitle" data-i18n="diseases_title_groundnut">Groundnut Diseases We Detect</h2>
+
+      <!-- ── Groundnut Diseases ── -->
+      <div class="disease-grid" data-crop-diseases="groundnut">
+        <div class="disease-card animate-on-scroll" style="--card-accent: #27ae60">
+          <div class="disease-icon" aria-hidden="true">🌱</div>
+          <h3 data-i18n="disease_healthy">Healthy</h3>
+          <p data-i18n="disease_healthy_desc">No signs of disease. The leaf appears normal and healthy with good color and texture.</p>
+        </div>
+        <div class="disease-card animate-on-scroll" style="--card-accent: #e74c3c">
+          <div class="disease-icon" aria-hidden="true">🔴</div>
+          <h3 data-i18n="disease_leaf_spot">Leaf Spot (Early & Late)</h3>
+          <p data-i18n="disease_leaf_spot_desc">Circular dark spots on leaves caused by Cercospora fungus. Can reduce yield by 50% if untreated.</p>
+        </div>
+        <div class="disease-card animate-on-scroll" style="--card-accent: #f39c12">
+          <div class="disease-icon" aria-hidden="true">🟠</div>
+          <h3 data-i18n="disease_rust">Rust</h3>
+          <p data-i18n="disease_rust_desc">Orange-brown pustules on leaf undersides caused by Puccinia arachidis. Spreads rapidly in humid conditions.</p>
+        </div>
+        <div class="disease-card animate-on-scroll" style="--card-accent: #9b59b6">
+          <div class="disease-icon" aria-hidden="true">🟤</div>
+          <h3 data-i18n="disease_alternaria">Alternaria Leaf Spot</h3>
+          <p data-i18n="disease_alternaria_desc">Irregular brown lesions with concentric rings. Caused by Alternaria alternata in warm, humid weather.</p>
+        </div>
+        <div class="disease-card animate-on-scroll" style="--card-accent: #e67e22">
+          <div class="disease-icon" aria-hidden="true">🟡</div>
+          <h3 data-i18n="disease_rosette">Rosette</h3>
+          <p data-i18n="disease_rosette_desc">Viral disease transmitted by aphids causing severe stunting, yellowing, and curling of leaves.</p>
+        </div>
+      </div>
+
+      <!-- ── Potato Diseases ── -->
+      <div class="disease-grid" data-crop-diseases="potato" style="display:none;">
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #27ae60">
+          <div class="disease-icon" aria-hidden="true">🌱</div>
+          <h3 data-i18n="disease_potato_healthy">Healthy</h3>
+          <p data-i18n="disease_potato_healthy_desc">No signs of disease. The potato plant appears normal with healthy foliage and growth.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #e74c3c">
+          <div class="disease-icon" aria-hidden="true">🦠</div>
+          <h3 data-i18n="disease_potato_bacteria">Bacterial Wilt</h3>
+          <p data-i18n="disease_potato_bacteria_desc">Caused by Ralstonia solanacearum. Plants wilt rapidly even with adequate soil moisture.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #8e44ad">
+          <div class="disease-icon" aria-hidden="true">🍄</div>
+          <h3 data-i18n="disease_potato_fungi">Fungal Blight</h3>
+          <p data-i18n="disease_potato_fungi_desc">Caused by Alternaria solani. Dark concentric spots on older leaves leading to defoliation.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #d35400">
+          <div class="disease-icon" aria-hidden="true">🪱</div>
+          <h3 data-i18n="disease_potato_nematode">Potato Cyst Nematode</h3>
+          <p data-i18n="disease_potato_nematode_desc">Microscopic worms feeding on roots causing stunted growth, yellowing, and yield loss.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #c0392b">
+          <div class="disease-icon" aria-hidden="true">🐛</div>
+          <h3 data-i18n="disease_potato_pest">Pest Infestation</h3>
+          <p data-i18n="disease_potato_pest_desc">Insects like Colorado Potato Beetle feeding on foliage, causing defoliation and yield loss.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #2980b9">
+          <div class="disease-icon" aria-hidden="true">💧</div>
+          <h3 data-i18n="disease_potato_phytopthora">Late Blight (Phytophthora)</h3>
+          <p data-i18n="disease_potato_phytopthora_desc">Devastating disease caused by Phytophthora infestans. Can destroy a crop in days under cool, wet conditions.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #16a085">
+          <div class="disease-icon" aria-hidden="true">🧬</div>
+          <h3 data-i18n="disease_potato_virus">Potato Virus (PVY/PLRV)</h3>
+          <p data-i18n="disease_potato_virus_desc">Viral diseases transmitted by aphids causing mosaic patterns, leaf rolling, and stunted growth.</p>
+        </div>
+      </div>
+
+      <!-- ── Pepper Diseases ── -->
+      <div class="disease-grid" data-crop-diseases="pepper" style="display:none;">
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #27ae60">
+          <div class="disease-icon" aria-hidden="true">🌱</div>
+          <h3 data-i18n="disease_pepper_healthy">Healthy</h3>
+          <p data-i18n="disease_pepper_healthy_desc">The pepper plant appears healthy with no signs of disease. Vibrant green leaves and normal growth.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #e74c3c">
+          <div class="disease-icon" aria-hidden="true">🦠</div>
+          <h3 data-i18n="disease_pepper_bacterial">Bacterial Spot</h3>
+          <p data-i18n="disease_pepper_bacterial_desc">Caused by Xanthomonas campestris. Water-soaked spots on leaves that enlarge and turn brown with yellow halos.</p>
+        </div>
+      </div>
+
+      <!-- ── Tomato Diseases ── -->
+      <div class="disease-grid" data-crop-diseases="tomato" style="display:none;">
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #27ae60">
+          <div class="disease-icon" aria-hidden="true">🌱</div>
+          <h3 data-i18n="disease_tomato_healthy">Healthy</h3>
+          <p data-i18n="disease_tomato_healthy_desc">The tomato plant appears healthy with vibrant green foliage and no signs of disease.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #e74c3c">
+          <div class="disease-icon" aria-hidden="true">🦠</div>
+          <h3 data-i18n="disease_tomato_bacterial">Bacterial Spot</h3>
+          <p data-i18n="disease_tomato_bacterial_desc">Small, dark, water-soaked lesions on leaves and fruit caused by Xanthomonas species.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #8e44ad">
+          <div class="disease-icon" aria-hidden="true">🍂</div>
+          <h3 data-i18n="disease_tomato_early_blight">Early Blight</h3>
+          <p data-i18n="disease_tomato_early_blight_desc">Concentric dark ring spots (target pattern) on older leaves caused by Alternaria solani.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #2980b9">
+          <div class="disease-icon" aria-hidden="true">💧</div>
+          <h3 data-i18n="disease_tomato_late_blight">Late Blight</h3>
+          <p data-i18n="disease_tomato_late_blight_desc">Devastating disease by Phytophthora infestans. Water-soaked lesions with white fuzzy mold underneath.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #7f8c8d">
+          <div class="disease-icon" aria-hidden="true">🌫️</div>
+          <h3 data-i18n="disease_tomato_leaf_mold">Leaf Mold</h3>
+          <p data-i18n="disease_tomato_leaf_mold_desc">Yellow spots on upper surface with olive-green velvety mold underneath. Common in greenhouses.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #d35400">
+          <div class="disease-icon" aria-hidden="true">🔴</div>
+          <h3 data-i18n="disease_tomato_septoria">Septoria Leaf Spot</h3>
+          <p data-i18n="disease_tomato_septoria_desc">Numerous small circular spots with dark borders and gray centers. Tiny black dots visible in spot centers.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #c0392b">
+          <div class="disease-icon" aria-hidden="true">🕷️</div>
+          <h3 data-i18n="disease_tomato_spider_mite">Spider Mite Damage</h3>
+          <p data-i18n="disease_tomato_spider_mite_desc">Fine stippling and webbing on leaves caused by two-spotted spider mites in hot, dry conditions.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #f39c12">
+          <div class="disease-icon" aria-hidden="true">🎯</div>
+          <h3 data-i18n="disease_tomato_target_spot">Target Spot</h3>
+          <p data-i18n="disease_tomato_target_spot_desc">Brown spots with concentric ring patterns on leaves, stems, and fruit by Corynespora cassiicola.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #f1c40f">
+          <div class="disease-icon" aria-hidden="true">🌀</div>
+          <h3 data-i18n="disease_tomato_ylcv">Yellow Leaf Curl Virus</h3>
+          <p data-i18n="disease_tomato_ylcv_desc">Devastating viral disease causing upward leaf curling, yellowing, and severe stunting. Spread by whiteflies.</p>
+        </div>
+        <div class="disease-card animate-on-scroll visible" style="--card-accent: #16a085">
+          <div class="disease-icon" aria-hidden="true">🧬</div>
+          <h3 data-i18n="disease_tomato_mosaic">Tomato Mosaic Virus</h3>
+          <p data-i18n="disease_tomato_mosaic_desc">Highly contagious virus causing light/dark green mosaic patterns, leaf distortion, and stunted growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       How It Works Section
+       ═══════════════════════════════════ -->
+  <section id="how-it-works" class="how-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-i18n="how_title">How It Works</h2>
+
+      <div class="steps">
+        <!-- Step 1 -->
+        <div class="step animate-on-scroll">
+          <div class="step-number">1</div>
+          <div class="step-icon" aria-hidden="true">📸</div>
+          <h3 data-i18n="how_step1_title">Capture</h3>
+          <p data-i18n="how_step1_desc">Take a clear photo of the affected leaf using your phone camera or upload an existing image.</p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true"></div>
+
+        <!-- Step 2 -->
+        <div class="step animate-on-scroll">
+          <div class="step-number">2</div>
+          <div class="step-icon" aria-hidden="true">🤖</div>
+          <h3 data-i18n="how_step2_title">Analyze</h3>
+          <p data-i18n="how_step2_desc">Our AI model powered by MobileNetV2 analyzes the leaf image and identifies any diseases.</p>
+        </div>
+
+        <div class="step-connector" aria-hidden="true"></div>
+
+        <!-- Step 3 -->
+        <div class="step animate-on-scroll">
+          <div class="step-number">3</div>
+          <div class="step-icon" aria-hidden="true">💊</div>
+          <h3 data-i18n="how_step3_title">Get Treatment</h3>
+          <p data-i18n="how_step3_desc">Receive instant treatment suggestions and prevention tips in your preferred language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Prediction History Section
+       ═══════════════════════════════════ -->
+  <section id="history" class="history-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-i18n="history_title">Prediction History</h2>
+      <p class="section-desc animate-on-scroll" data-i18n="history_desc">View your past predictions and results</p>
+
+      <div class="history-card animate-on-scroll">
+        <div class="history-header">
+          <span id="historyCount" class="history-count">0 predictions</span>
+          <button class="btn btn-outline btn-sm" id="clearHistoryBtn" data-i18n="history_clear">🗑️ Clear History</button>
+        </div>
+        <div class="history-empty" id="historyEmpty">
+          <div class="history-empty-icon">📋</div>
+          <p data-i18n="history_empty">No predictions yet. Upload a leaf image to get started!</p>
+        </div>
+        <div class="history-table-wrapper" id="historyTableWrapper" style="display:none;">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th data-i18n="history_col_date">Date & Time</th>
+                <th data-i18n="history_col_crop">Crop</th>
+                <th data-i18n="history_col_disease">Disease</th>
+                <th data-i18n="history_col_confidence">Confidence</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       Footer
+       ═══════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="{{ url_for('static', filename='logo/leafguard_logo.png') }}" alt="LeafGuard" width="36" height="36">
+          <span>LeafGuard  | Titans </span>
+        </div>
+        <p data-i18n="footer_desc">AI-powered crop disease detection for smarter, healthier farming.</p>
+       <!-- <p class="footer-copy">&copy;Thank You.</p>-->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/language.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

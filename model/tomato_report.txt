@@ -1,0 +1,21 @@
+LeafGuard AI -- Tomato Classification Report
+============================================================
+Test Loss:     0.2412
+Test Accuracy: 92.82%
+
+                                             precision    recall  f1-score   support
+
+                      Tomato_Bacterial_spot     0.9401    0.9577    0.9488       213
+                        Tomato_Early_blight     0.9080    0.7900    0.8449       100
+                         Tomato_Late_blight     0.9436    0.9634    0.9534       191
+                           Tomato_Leaf_Mold     0.9560    0.9158    0.9355        95
+                  Tomato_Septoria_leaf_spot     0.8871    0.9322    0.9091       177
+Tomato_Spider_mites_Two_spotted_spider_mite     0.9781    0.7976    0.8787       168
+                        Tomato__Target_Spot     0.8333    0.8929    0.8621       140
+      Tomato__Tomato_YellowLeaf__Curl_Virus     0.9905    0.9782    0.9843       321
+                Tomato__Tomato_mosaic_virus     0.9024    1.0000    0.9487        37
+                             Tomato_healthy     0.8722    0.9874    0.9263       159
+
+                                   accuracy                         0.9282      1601
+                                  macro avg     0.9212    0.9215    0.9192      1601
+                               weighted avg     0.9308    0.9282    0.9276      1601
